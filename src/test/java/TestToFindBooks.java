@@ -39,6 +39,7 @@ public class TestToFindBooks {
         Book book = new GettingInfoAboutBookFromPage("https://www.amazon.com/Head-First-Java-Kathy-Sierra/dp/0596009208/ref=sr_1_2?dchild=1&keywords=Java&qid=1610356790&s=books&sr=1-2", webDriver).getBookFromPage();
         System.out.println(book);
 
+
             Assert.assertEquals(bookPage.chekBookInList("Head First Java, 2nd Edition", books), book);
     }
 
