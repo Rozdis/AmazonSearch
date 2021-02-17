@@ -21,18 +21,6 @@ public class BookPage {
         this.webDriver = webDriver;
     }
 
-    public void showResult(){
-     //   listOfBooks = webDriver.findElements(findListOfBooks);
-       // System.out.println(listOfBooks.size());
-      // for (WebElement element : listOfBooks) {
-          // System.out.println("-------------------------");
-          // System.out.println(element.findElement(findNameOfBook).getText());
-          // System.out.println(element.findElement(findAuthorBook).getText());
-          // System.out.println(element.findElement(findPriceBook).getText());
-           //System.out.println((Integer.parseInt(element.findElement(findNumberOfFeedBacks).getText().replace(",", "")) > 400)) ? "Bestseller" : "Not bestseller"));
-        //}
-
-    }
 
     public void saveValuesToList(List<Book> booksList){
         listOfBooks = webDriver.findElements(findListOfBooks);
@@ -43,18 +31,17 @@ public class BookPage {
                     (Integer.parseInt(element.findElement(findNumberOfFeedBacks).getText().replace(",", "")) > 400) ? "Bestseller" : "Not bestseller"));
 
         }
-        System.out.println(booksList.size());
-        for (Book book : booksList) {
-            System.out.println(book.toString());
-        }
+       // for (Book book : booksList) {
+        //    System.out.println(book.toString());
+       // }
     }
 
-    public boolean chekBookInList(String nameOfBook, List<Book> bookList){
+    public Book chekBookInList(String nameOfBook, List<Book> bookList){
         for (Book book : bookList){
             if (book.getName().equals(nameOfBook))
-                return true;
+                return book;
         }
-        return false;
+        return null;
     }
 
 

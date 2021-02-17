@@ -1,4 +1,4 @@
-
+import java.util.Objects;
 
 public class Book {
     private String name;
@@ -16,6 +16,7 @@ public class Book {
         this.price = price;
         this.chekOnBestseller = chekOnBestseller;
     }
+    public Book(){}
 
     public void setName(String name) {
         this.name = name;
@@ -48,5 +49,22 @@ public class Book {
     @Override
     public String toString() {
         return "Book ------------------------ \n" + "\tName: " + name + "\n" + "\tAuthor: " + author + "\n" + "\tPrice: " + price + "\n" + "\tBestseller: " + chekOnBestseller;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        // self check
+        if (this == o)
+            return true;
+        // null check
+        if (o == null)
+            return false;
+        // type check and cast
+        if (getClass() != o.getClass())
+            return false;
+        Book book = (Book) o;
+        // field comparison
+        return Objects.equals(name, book.name) &&
+                Objects.equals(author, book.author);
     }
 }

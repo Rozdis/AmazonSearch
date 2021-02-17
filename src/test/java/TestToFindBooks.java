@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestToFindBooks {
+
     public WebDriver webDriver;
     private List<Book> books = new ArrayList<>();
 
@@ -35,8 +36,10 @@ public class TestToFindBooks {
 
         BookPage bookPage = new BookPage(webDriver);
         bookPage.saveValuesToList(books);
+        Book book = new GettingInfoAboutBookFromPage("https://www.amazon.com/Head-First-Java-Kathy-Sierra/dp/0596009208/ref=sr_1_2?dchild=1&keywords=Java&qid=1610356790&s=books&sr=1-2", webDriver).getBookFromPage();
+        System.out.println(book);
 
-            Assert.assertTrue(bookPage.chekBookInList("Head First Java, 2nd Edition", books));
+            Assert.assertEquals(bookPage.chekBookInList("Head First Java, 2nd Edition", books), book);
     }
 
     @AfterTest
