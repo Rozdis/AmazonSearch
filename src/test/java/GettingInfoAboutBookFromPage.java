@@ -23,7 +23,7 @@ public class GettingInfoAboutBookFromPage {
         book.setName(driver.findElement(findNameOfBook).getText());
         book.setAuthor(driver.findElement(findAuthorBook).getText());
         book.setPrice(driver.findElement(findPriceBook).getText().replace("$", "").split("\\.", 2)[0]);
-        book.setChekOnBestseller("Bestseller");
+        book.setChekOnBestseller((Integer.parseInt(driver.findElement(findNumberOfFeedBacks).getText().replace(",", "").replace(" ratings", "")) > 400) ? "Bestseller" : "Not bestseller");
         return book;
     }
 
