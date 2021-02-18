@@ -1,16 +1,20 @@
+import elements.Book;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import pages.ResultListOfBooks;
+import pages.BookDetail;
+import pages.SearchPage;
+
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TestToFindBooks {
+public class TestToRecognizeBookInList {
 
     public WebDriver webDriver;
     private List<Book> books = new ArrayList<>();
@@ -20,26 +24,19 @@ public class TestToFindBooks {
      System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
 
         webDriver = new ChromeDriver();
-        webDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
+        SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
-
-        SearchPage searchPage = new SearchPage(webDriver);
         searchPage.useFilterBooks();
         searchPage.setInputSearch("java");
     }
     @Test
     public void test(){
-        String expectedTitle = "Amazon.com : java";
-        Assert.assertEquals(webDriver.getTitle(), expectedTitle);
+        ResultListOfBooks bookPage = new ResultListOfBooks(webDriver);
+        bookPage.satValuesToList(books);
+        Book book = new BookDetail("https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997/ref=sr_1_1?dchild=1&keywords=java&qid=1613558034&s=books&sr=1-1", webDriver).getBookFromPage();
 
-        BookPage bookPage = new BookPage(webDriver);
-        bookPage.saveValuesToList(books);
-        Book book = new GettingInfoAboutBookFromPage("https://www.amazon.com/Head-First-Java-Kathy-Sierra/dp/0596009208/ref=sr_1_2?dchild=1&keywords=Java&qid=1610356790&s=books&sr=1-2", webDriver).getBookFromPage();
-        System.out.println(book);
-
-        Assert.assertEquals(bookPage.chekBookInList("Head First Java, 2nd Edition", books), book);
+        Assert.assertTrue(books.contains(book));
     }
 
     @AfterTest

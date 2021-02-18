@@ -1,3 +1,5 @@
+package elements;
+
 import java.util.Objects;
 
 public class Book {
@@ -48,7 +50,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book ------------------------ \n" + "\tName: " + name + "\n" + "\tAuthor: " + author + "\n" + "\tPrice: " + price + "\n" + "\tBestseller: " + chekOnBestseller;
+        return "elements.Book ------------------------ \n" + "\tName: " + name + "\n" + "\tAuthor: " + author + "\n" + "\tPrice: " + price + "\n" + "\tBestseller: " + chekOnBestseller;
     }
 
     @Override

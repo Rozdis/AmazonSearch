@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class Main {
 
     public static void main(String[] args){
-        System.out.println(Integer.parseInt("1794".replace(",", "")) > 400);
+
     }
 
 }
