@@ -17,7 +17,7 @@ public class SearchPage {
     }
 
     public void useFilterBooks() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5);
+        TimeUnit.SECONDS.sleep(30);
         webDriver.findElement(filterBook).click();
     }
 
