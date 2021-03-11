@@ -1,10 +1,11 @@
 import elements.Book;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 import pages.ResultListOfBooks;
 import pages.BookDetail;
@@ -22,11 +23,13 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage(){
-     System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
+    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
+     ChromeOptions options = new ChromeOptions();
+	options.addArguments("--headless");
 
-        webDriver = new ChromeDriver();
 	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	cap.setBrowserName("chrome");
+        webDriver = new ChromeDriver(options);
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
