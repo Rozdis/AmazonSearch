@@ -22,7 +22,7 @@ public class TestToRecognizeBookInList {
     private List<Book> books = new ArrayList<>();
 
     @BeforeTest
-    public void openAndFindPage() {
+    public void openAndFindPage() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver",  "src/main/resources/chromedriver_linux");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");

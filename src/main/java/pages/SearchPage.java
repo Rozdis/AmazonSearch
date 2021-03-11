@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import java.util.concurrent.TimeUnit;
 
 public class SearchPage {
     By filterBook = By.xpath("//*[@id=\"searchDropdownBox\"]/option[6]");
@@ -15,7 +16,8 @@ public class SearchPage {
         this.webDriver = webDriver;
     }
 
-    public void useFilterBooks(){
+    public void useFilterBooks() throws InterruptedException {
+        Thread.sleep(1000);
         webDriver.findElement(filterBook).click();
     }
 
