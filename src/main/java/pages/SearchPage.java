@@ -17,7 +17,7 @@ public class SearchPage {
     }
 
     public void useFilterBooks()  {
-        System.out.println(webDriver.findElement(inputSearch).isEnabled());
+        System.out.println(webDriver.findElement(filterBook).isEnabled());
         webDriver.findElement(filterBook).click();
     }
 
