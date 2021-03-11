@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SearchPage {
     By filterBook = By.xpath("//*[@id=\"searchDropdownBox\"]/option[6]");
-    By  inputSearch = By.xpath("//*[@id=\"twotabsearchtextbox\"]");
+    By  inputSearch = By.cssSelector("#twotabsearchtextbox");
 
     private final WebDriver webDriver;
 
