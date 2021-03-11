@@ -22,22 +22,24 @@ public class TestToRecognizeBookInList {
     private List<Book> books = new ArrayList<>();
 
     @BeforeTest
-    public void openAndFindPage(){
-    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
-     ChromeOptions options = new ChromeOptions();
-	options.addArguments("--headless");
+    public void openAndFindPage() {
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
+        ChromeOptions options = new ChromeOptions();
+        //options.addArguments("--headless");
+        options.setBinary("/usr/bin/google-chrome");
 
-	DesiredCapabilities cap = DesiredCapabilities.chrome();
-	cap.setBrowserName("chrome");
-        webDriver = new ChromeDriver();
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
+        cap.setBrowserName("chrome");
+        webDriver = new ChromeDriver(options);
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
         searchPage.useFilterBooks();
         searchPage.setInputSearch("java");
     }
+
     @Test
-    public void test(){
+    public void test() {
         ResultListOfBooks bookPage = new ResultListOfBooks(webDriver);
         bookPage.satValuesToList(books);
         Book book = new BookDetail("https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997/ref=sr_1_1?dchild=1&keywords=java&qid=1613558034&s=books&sr=1-1", webDriver).getBookFromPage();
@@ -46,7 +48,7 @@ public class TestToRecognizeBookInList {
     }
 
     @AfterTest
-    public void terminateBrowser(){
+    public void terminateBrowser() {
         webDriver.close();
     }
 
