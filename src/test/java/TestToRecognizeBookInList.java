@@ -2,6 +2,7 @@ import elements.Book;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -12,6 +13,8 @@ import pages.BookDetail;
 import pages.SearchPage;
 
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -22,14 +25,15 @@ public class TestToRecognizeBookInList {
     private List<Book> books = new ArrayList<>();
 
     @BeforeTest
-    public void openAndFindPage(){
+    public void openAndFindPage() throws MalformedURLException {
     System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
      ChromeOptions options = new ChromeOptions();
 	options.addArguments("--headless");
 
 	DesiredCapabilities cap = DesiredCapabilities.chrome();
 	cap.setBrowserName("chrome");
-        webDriver = new ChromeDriver(options);
+	cap.setVersion("lts");
+        webDriver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), cap);
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
