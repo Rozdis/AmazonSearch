@@ -23,7 +23,9 @@ public class TestToRecognizeBookInList {
     public void openAndFindPage(){
      System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
 
-        webDriver = new ChromeDriver();
+        DesiredCapabilities cap = DesiredCapabilities.chrome();
+	    cap.setBrowserName("chrome");
+        webDriver = new ChromeDriver(options);
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
