@@ -23,7 +23,7 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
+        System.setProperty("webdriver.chrome.driver",  "src/main/resources/chromedriver_linux");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
