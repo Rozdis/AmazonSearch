@@ -25,14 +25,14 @@ public class TestToRecognizeBookInList {
     public void openAndFindPage() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("start-maximized");
-//        options.addArguments("disable-infobars");
-//        options.addArguments("--disable-extensions");
-//        options.addArguments("--disable-gpu");
-//        options.addArguments("disable-dev-shm-usage");
-//        options.addArguments("--no-sandbox");
+        options.addArguments("start-maximized");
+        options.addArguments("disable-infobars");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-gpu");
+        options.addArguments("disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-//        options.setBinary("/usr/bin/google-chrome");
+        options.setBinary("/usr/bin/google-chrome");
 
 
         webDriver = new ChromeDriver(options);
