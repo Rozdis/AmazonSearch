@@ -27,7 +27,6 @@ public class TestToRecognizeBookInList {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
-        options.addArguments("--disable-extensions");
         options.addArguments("--disable-gpu");
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
