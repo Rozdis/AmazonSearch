@@ -16,8 +16,8 @@ public class SearchPage {
         this.webDriver = webDriver;
     }
 
-    public void useFilterBooks() throws InterruptedException {
-        Thread.sleep(1000);
+    public void useFilterBooks() {
+        webDriver.findElement(By.xpath("//*[@id=\"searchDropdownBox\"]")).click();
         webDriver.findElement(filterBook).click();
     }
 
