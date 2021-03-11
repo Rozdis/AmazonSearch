@@ -25,6 +25,12 @@ public class TestToRecognizeBookInList {
     public void openAndFindPage() {
         System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("disable-infobars");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-gpu");
+        options.addArguments("disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
         //options.addArguments("--headless");
         options.setBinary("/usr/bin/google-chrome");
 
@@ -36,6 +42,7 @@ public class TestToRecognizeBookInList {
 
         searchPage.useFilterBooks();
         searchPage.setInputSearch("java");
+        //chmod 755 src/main/resources/chromedriver_linux
     }
 
     @Test
