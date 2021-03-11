@@ -22,7 +22,7 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage(){
-     System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+     System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
 
         DesiredCapabilities cap = DesiredCapabilities.chrome();
 	    cap.setBrowserName("chrome");
