@@ -22,11 +22,11 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage(){
-	    DesiredCapabilities cap = DesiredCapabilities.chrome();
-	cap.setBrowserName("chrome");
      System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
 
         webDriver = new ChromeDriver();
+	DesiredCapabilities cap = DesiredCapabilities.chrome();
+	cap.setBrowserName("chrome");
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
