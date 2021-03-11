@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 import java.util.concurrent.TimeUnit;
 
 public class SearchPage {
-    By filterBook = By.xpath("//*[@id=\"searchDropdownBox\"]/option[6]");
-    By  inputSearch = By.cssSelector("#twotabsearchtextbox");
+    By filterBook = By.cssSelector("#searchDropdownBox > option:nth-child(6)");
+    By  inputSearch = By.xpath("//*[@id=\"twotabsearchtextbox\"]");
 
     private final WebDriver webDriver;
 
