@@ -31,7 +31,7 @@ public class TestToRecognizeBookInList {
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        options.setBinary("/usr/bin/google-chrome");
+        //options.setBinary("/usr/bin/google-chrome");
 
 
         webDriver = new ChromeDriver(options);
