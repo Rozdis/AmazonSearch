@@ -26,7 +26,7 @@ public class TestToRecognizeBookInList {
 
         DesiredCapabilities cap = DesiredCapabilities.chrome();
 	    cap.setBrowserName("chrome");
-        webDriver = new ChromeDriver(options);
+        webDriver = new ChromeDriver();
         SearchPage searchPage = new SearchPage(webDriver);
         webDriver.navigate().to("https://www.amazon.com/");
 
