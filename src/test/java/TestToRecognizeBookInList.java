@@ -23,7 +23,7 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage() {
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linuxx");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("start-maximized");
         options.addArguments("disable-infobars");
@@ -31,7 +31,6 @@ public class TestToRecognizeBookInList {
         options.addArguments("disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        options.addArguments("--remote-debugging-port:9222");
         options.setBinary("/usr/bin/google-chrome");
 
 
