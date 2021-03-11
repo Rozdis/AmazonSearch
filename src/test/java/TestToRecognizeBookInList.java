@@ -23,7 +23,7 @@ public class TestToRecognizeBookInList {
 
     @BeforeTest
     public void openAndFindPage(){
-    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+    System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver_linux");
      ChromeOptions options = new ChromeOptions();
 	options.addArguments("--headless");
 
