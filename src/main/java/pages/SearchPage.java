@@ -16,12 +16,12 @@ public class SearchPage {
     }
 
     public void useFilterBooks(){
-        webDriver.findElement(filterBook).click();
+        webDriver.get("https://www.amazon.com/s?k=java&i=stripbooks-intl-ship&ref=nb_sb_noss_1");
     }
 
     public void setInputSearch(String query){
-        webDriver.findElement(inputSearch).sendKeys(query);
-        webDriver.findElement(inputSearch).sendKeys(Keys.ENTER);
+//        webDriver.findElement(inputSearch).sendKeys(query);
+//        webDriver.findElement(inputSearch).sendKeys(Keys.ENTER);
 
     }
 
