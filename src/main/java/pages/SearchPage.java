@@ -3,10 +3,9 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import java.util.concurrent.TimeUnit;
 
 public class SearchPage {
-    By filterBook = By.cssSelector("#searchDropdownBox > option:nth-child(6)");
+    By filterBook = By.xpath("//*[@id=\"searchDropdownBox\"]/option[6]");
     By  inputSearch = By.xpath("//*[@id=\"twotabsearchtextbox\"]");
 
     private final WebDriver webDriver;
@@ -16,8 +15,7 @@ public class SearchPage {
         this.webDriver = webDriver;
     }
 
-    public void useFilterBooks()  {
-        System.out.println(webDriver.findElement(filterBook).isEnabled());
+    public void useFilterBooks(){
         webDriver.findElement(filterBook).click();
     }
 
