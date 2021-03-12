@@ -48,7 +48,6 @@ public class TestToRecognizeBookInList {
         ResultListOfBooks bookPage = new ResultListOfBooks(webDriver);
         bookPage.satValuesToList(books);
         Book book = new BookDetail("https://www.amazon.com/Effective-Java-Joshua-Bloch/dp/0134685997/ref=sr_1_1?dchild=1&keywords=java&qid=1613558034&s=books&sr=1-1", webDriver).getBookFromPage();
-        System.out.println("jihihujhihuhihuhihiknkjnjknkjnkunkunkmnkubnkjbnkbnu");
         Assert.assertTrue(books.contains(book));
     }
 
